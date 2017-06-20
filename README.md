@@ -1,7 +1,7 @@
-# Screaming Bird for Android
+# Screaming Monkey for Android
 
 ## Description
-Scream at your bird and rock this Flappy Bird Replica in Unity.
+Scream at your monkey and rock this Flappy Bird Replica in Unity.
 
 Stable versions are available through Google Play Store (not published yet):
 
