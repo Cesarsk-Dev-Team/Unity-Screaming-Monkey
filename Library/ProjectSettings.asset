@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: CesMes
+  companyName: Wordly
   productName: Screaming Monkey
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -228,7 +228,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f75deaf42611b3e43a8d8f73f41bcd61, type: 3}
+      m_Icon: {fileID: 2800000, guid: 2010c1206ed68764ca857b21d60035f6, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []

@@ -64,6 +64,6 @@ public class MenuController : MonoBehaviour {
 
 	public void GitHub()
 	{
-		Application.OpenURL("https://github.com/Cesarsk/Unity-Screaming-Bird");
+		Application.OpenURL("https://github.com/Cesarsk/Unity-Screaming-Monkey");
 	}
 }
