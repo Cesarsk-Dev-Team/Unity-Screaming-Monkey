@@ -2241,7 +2241,7 @@ GameObject:
   - component: {fileID: 1952190767}
   - component: {fileID: 1952190768}
   m_Layer: 0
-  m_Name: Bird
+  m_Name: Monkey
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2383,11 +2383,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1952190760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a376075d289604b12937f710bb6a3cf1, type: 3}
+  m_Script: {fileID: 11500000, guid: e440abb92a044ac41954f53f6487e815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugText: {fileID: 1214849151}
-  debugText2: {fileID: 1244157217}
+  debugText: {fileID: 0}
+  debugText2: {fileID: 0}
 --- !u!95 &1952190766
 Animator:
   serializedVersion: 3
@@ -2397,7 +2397,7 @@ Animator:
   m_GameObject: {fileID: 1952190760}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3fb3def751574a078e8b252977469f9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 28a098cc9bfa1544f926d6c45c1ad9cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

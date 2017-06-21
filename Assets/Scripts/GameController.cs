@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
 	public GameObject pauseMenu;
     private Animator animSoundToggle;
     private bool adShowed = false;
+    private bool inputMode = false;
 
     // Use this for initialization
     void Awake () {
@@ -40,7 +41,16 @@ public class GameController : MonoBehaviour {
         //DeletePrefs();
 		LoadRecord ();
         //LoadCoins ();
-        if (!SettingsController.inputMode) tutorialText.GetComponent<TextMesh>().text = "Scream to Jump";
+        LoadPrefs();
+    }
+
+    private void LoadPrefs()
+    {
+        int inputModeInt = PlayerPrefs.GetInt("inputMode", 0);
+        if (inputModeInt == 0) inputMode = false;
+        else if (inputModeInt == 1) inputMode = true;
+        if (!inputMode) tutorialText.GetComponent<TextMesh>().text = "Scream to Jump";
+        else tutorialText.GetComponent<TextMesh>().text = "Tap to Jump";
     }
 
     // Update is called once per frame
