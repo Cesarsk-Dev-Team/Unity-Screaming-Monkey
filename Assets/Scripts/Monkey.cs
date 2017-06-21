@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bird : MonoBehaviour {
+public class Monkey : MonoBehaviour {
 
 	private bool isDead;
 	private Rigidbody2D rb2d;
 	private float voiceUpForce = 180f;
     private float touchUpForce = 200f;
 	private Animator anim;
-	private AudioSource[] birdSounds;
+	private AudioSource[] monkeySounds;
 	private AudioSource flapSound;
 	private AudioSource deadSound;
     public Text debugText;
@@ -40,10 +40,10 @@ public class Bird : MonoBehaviour {
         isDead = false;
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
-		birdSounds = GetComponents<AudioSource>();
-		flapSound = birdSounds [0];
-		deadSound = birdSounds [1];
-        FlapBird(); 
+		monkeySounds = GetComponents<AudioSource>();
+		flapSound = monkeySounds [0];
+		deadSound = monkeySounds [1];
+        FlapMonkey(); 
 	}
 	
 	// Update is called once per frame
@@ -51,23 +51,23 @@ public class Bird : MonoBehaviour {
 		//if the player is dead, stop the game
 		if (isDead == false)
 		{
-            if(!inputMode)FlapBirdWithVoice();
-            else if(inputMode)FlapBirdWithTouch();
+            if(!inputMode)FlapMonkeyWithVoice();
+            else if(inputMode)FlapMonkeyWithTouch();
 		}
 	}
 
-	//handling the collision between ground and bird or tubes and bird
-	void OnCollisionEnter2D()
+    //handling the collision between ground and monkey or tubes and monkey
+    void OnCollisionEnter2D()
 	{
         if(!isDead)deadSound.Play();
         isDead = true;
-		//avoid a little slide if the bird dies because of the backgroundScrolling
-		rb2d.velocity = Vector2.zero;
+        //avoid a little slide if the monkey dies because of the backgroundScrolling
+        rb2d.velocity = Vector2.zero;
 		anim.SetTrigger ("Dead");
-        GameController.instance.BirdDied();
+        GameController.instance.MonkeyDied();
 	}
 
-    void FlapBird()
+    void FlapMonkey()
     {
         //velocity is either rising or falling. Every time we push the jump button we get always the time response.
         rb2d.velocity = Vector2.zero;
@@ -78,7 +78,7 @@ public class Bird : MonoBehaviour {
 		flapSound.Play ();
 	}
 
-    void FlapBirdWithVoice()
+    void FlapMonkeyWithVoice()
     {
 		//get mic volume
 		int dec = 128;
@@ -106,19 +106,19 @@ public class Bird : MonoBehaviour {
 
         if (level > voiceSensitivity && !flapped)
         {
-            if (!GameController.isPaused) FlapBird();
+            if (!GameController.isPaused) FlapMonkey();
             flapped = true;
         }
 
 		if (level < voiceSensitivity && flapped) flapped = false;
 	}
 
-    void FlapBirdWithTouch()
+    void FlapMonkeyWithTouch()
     {
 		//Left mouse button
 		   if(Input.GetMouseButtonDown(0))
 		   {
-			   if(!GameController.isPaused)FlapBird();
+			   if(!GameController.isPaused)FlapMonkey();
 		   }
 		   //Touch input
 		   if(Input.touchCount > 0)

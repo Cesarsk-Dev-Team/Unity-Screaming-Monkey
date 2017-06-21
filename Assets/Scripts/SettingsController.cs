@@ -14,6 +14,7 @@ public class SettingsController : MonoBehaviour {
     [HideInInspector]
     public static float voiceSensitivity = 0.71f;
     public Text sliderLabel;
+    public Text inputModeLabel;
     public Slider slider;
     //write a method with shar prefs which handles the input mode and put a button in the menu
 
@@ -40,6 +41,7 @@ public class SettingsController : MonoBehaviour {
             voiceInputButton.gameObject.SetActive(true);
             touchInputButton.gameObject.SetActive(false);
             slider.interactable = true;
+            inputModeLabel.text = "Scream to Jump";
             PlayerPrefs.SetInt("inputMode", 0);
         }
         else
@@ -47,6 +49,7 @@ public class SettingsController : MonoBehaviour {
             voiceInputButton.gameObject.SetActive(false);
             touchInputButton.gameObject.SetActive(true);
             slider.interactable = false;
+            inputModeLabel.text = "Touch to Jump";
             PlayerPrefs.SetInt("inputMode", 1);
         }
     }
@@ -75,6 +78,7 @@ public class SettingsController : MonoBehaviour {
             touchInputButton.gameObject.SetActive(false);
             slider.interactable = true;
             PlayerPrefs.SetInt("inputMode", 0);
+            inputModeLabel.text = "Scream to Jump";
         }
         else
         {
@@ -82,6 +86,7 @@ public class SettingsController : MonoBehaviour {
             touchInputButton.gameObject.SetActive(true);
             slider.interactable = false;
             PlayerPrefs.SetInt("inputMode", 1);
+            inputModeLabel.text = "Touch to Jump";
         }
 
         //loading Voice Sensitivity

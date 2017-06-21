@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void BirdDied() {
+    public void MonkeyDied() {
 		gameOverText.SetActive (true);
 		pauseButton.gameObject.SetActive (false);
 		gameOver = true;
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public void BirdScored()
+	public void MonkeyScored()
 	{
 		if (!gameOver) {
 			score++;

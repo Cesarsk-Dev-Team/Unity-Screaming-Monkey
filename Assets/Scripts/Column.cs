@@ -18,9 +18,9 @@ public class Column : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		//it's different than collider, trigger is enabled if "isTriggered" is true on the object
-		if (other.GetComponent<Bird> () != null) {
+		if (other.GetComponent<Monkey> () != null) {
 			//if it does have a bird component, let's call our gameController
-			GameController.instance.BirdScored();
+			GameController.instance.MonkeyScored();
 			scoreAudio.Play ();
 		}
 	}
