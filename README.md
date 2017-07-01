@@ -5,7 +5,7 @@ Scream at your monkey and rock this Flappy Bird Replica in Unity.
 
 Stable versions are available through Google Play Store (not published yet):
 
-<a href="https://play.google.com/store/apps/developer?id=Wordly"><img
+<a href="https://play.google.com/store/apps/developer?id=Cesarsk+Dev+Team"><img
   alt="Get it on Google Play" height="80"
   src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" /></a>
 
