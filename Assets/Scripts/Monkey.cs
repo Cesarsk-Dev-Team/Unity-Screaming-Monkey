@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Monkey : MonoBehaviour {
 
 	private bool isDead;
 	private Rigidbody2D rb2d;
-	private float voiceUpForce = 180f;
-    private float touchUpForce = 200f;
+	private const float voiceUpForce = 180f;
+    private const float touchUpForce = 200f;
 	private Animator anim;
 	private AudioSource[] monkeySounds;
 	private AudioSource flapSound;
@@ -51,10 +52,34 @@ public class Monkey : MonoBehaviour {
 		//if the player is dead, stop the game
 		if (isDead == false)
 		{
-            if(!inputMode)FlapMonkeyWithVoice();
-            else if(inputMode)FlapMonkeyWithTouch();
+            OnMouseDown();
 		}
 	}
+
+    void OnMouseDown()
+    {
+        // Detect mouse event
+        if (IsPointerOverUIObject())
+        {
+            Debug.Log("return mouse");
+            return;
+        }
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            if (!inputMode) FlapMonkeyWithVoice();
+            else if (inputMode) FlapMonkeyWithTouch();
+        }
+    }
+
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
 
     //handling the collision between ground and monkey or tubes and monkey
     void OnCollisionEnter2D()

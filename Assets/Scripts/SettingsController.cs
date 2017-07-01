@@ -56,7 +56,7 @@ public class SettingsController : MonoBehaviour {
 
 	public void AboutUs()
 	{
-		Application.OpenURL("https://lucacesaranoblog.wordpress.com");
+		Application.OpenURL("https://play.google.com/store/apps/developer?id=Cesarsk+Dev+Team");
 	}
 
     public void AdjustVoiceSensitivity(float newSensitivity)

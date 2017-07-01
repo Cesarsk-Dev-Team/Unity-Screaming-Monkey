@@ -39,7 +39,8 @@ public class GameController : MonoBehaviour {
     {
         //for testing purpose
         //DeletePrefs();
-		LoadRecord ();
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        LoadRecord();
         //LoadCoins ();
         LoadPrefs();
     }
