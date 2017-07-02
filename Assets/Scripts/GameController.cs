@@ -20,8 +20,11 @@ public class GameController : MonoBehaviour {
     public Button pauseButton;
 	public GameObject pauseMenu;
     private Animator animSoundToggle;
-    private bool adShowed = false;
+    private bool adEnabled = true;
+    private bool adShown = false;
     private bool inputMode = false;
+
+    private const int AD_CHANCE = 15;
 
     // Use this for initialization
     void Awake () {
@@ -72,16 +75,27 @@ public class GameController : MonoBehaviour {
 		gameOver = true;
         SaveRecord();
 
-        //show ad 20% chance
-        if(!adShowed)
-        {
-			adShowed = true;
-			int randomAdInt = UnityEngine.Random.Range(1, 100);
-			if (randomAdInt > 0 && randomAdInt < 20) ShowRewardedAd();
-		}
+        if (adEnabled) ShowAd();
+
 	}
 
-	public void MonkeyScored()
+    public void ShowAd()
+    {
+        if (!adShown)
+        {
+            int adRate = UnityEngine.Random.Range(1, 101);
+            if (adRate >= 1 && adRate <= AD_CHANCE)
+            {
+                if (Advertisement.IsReady())
+                {
+                    adShown = true;
+                    Advertisement.Show();
+                }
+            }
+        }
+    }
+
+    public void MonkeyScored()
 	{
 		if (!gameOver) {
 			score++;
@@ -119,7 +133,7 @@ public class GameController : MonoBehaviour {
 	{
 		if (isPaused)
 			ResumeGame();
-        adShowed = false;
+        adShown = false;
 		SceneManager.LoadScene(sceneToChangeTo);
 	}
 

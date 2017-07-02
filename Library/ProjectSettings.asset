@@ -213,8 +213,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/lucac/Google Drive/Lavoro/Cesarsk Dev Team/keystores/Unity/unity.keystore
+  AndroidKeyaliasName: unity dev key
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 0
