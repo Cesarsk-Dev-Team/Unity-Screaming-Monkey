@@ -17,8 +17,6 @@ public class Monkey : MonoBehaviour {
     public Text debugText;
     public Text debugText2;
     private bool debugMode = false;
-    private bool inputMode;
-    private float voiceSensitivity;
 	
     // variables handling input through microphone
     private AudioClip microphoneInput;
@@ -52,7 +50,8 @@ public class Monkey : MonoBehaviour {
 		//if the player is dead, stop the game
 		if (isDead == false)
 		{
-            OnMouseDown();
+            if(SettingsController.inputMode) OnMouseDown();
+			if (!SettingsController.inputMode) FlapMonkeyWithVoice();
 		}
 	}
 
@@ -66,8 +65,7 @@ public class Monkey : MonoBehaviour {
         }
         else if (Input.GetButtonDown("Fire1"))
         {
-            if (!inputMode) FlapMonkeyWithVoice();
-            else if (inputMode) FlapMonkeyWithTouch();
+            FlapMonkeyWithTouch();
         }
     }
 
@@ -97,8 +95,8 @@ public class Monkey : MonoBehaviour {
         //velocity is either rising or falling. Every time we push the jump button we get always the time response.
         rb2d.velocity = Vector2.zero;
         //adding some force to rb2d (we do not want to change horizontally the player because the world is moving around him)
-        if(!inputMode)rb2d.AddForce(new Vector2(0, voiceUpForce));
-        else if (inputMode) rb2d.AddForce(new Vector2(0, touchUpForce));
+        if(!SettingsController.inputMode)rb2d.AddForce(new Vector2(0, voiceUpForce));
+        else if (SettingsController.inputMode) rb2d.AddForce(new Vector2(0, touchUpForce));
         anim.SetTrigger("Flap");
 		flapSound.Play ();
 	}
@@ -121,21 +119,23 @@ public class Monkey : MonoBehaviour {
 		}
 
         float level = Mathf.Sqrt(Mathf.Sqrt(levelMax));
-        //debug variables
-        if(debugMode)
+		//debug variables
+		if(debugMode)
         {
-            debugText.text = "level:" + level + "\nsensitivity: " + voiceSensitivity;
+            debugText.gameObject.SetActive(true);
+            debugText2.gameObject.SetActive(true);
+            debugText.text = "level:" + level + "\nsensitivity: " + SettingsController.voiceSensitivity;
             if (!flapped) debugText2.text = "flapped = False";
             if (flapped) debugText2.text = "flapped = True";
         }
 
-        if (level > voiceSensitivity && !flapped)
+        if (level > SettingsController.voiceSensitivity && !flapped)
         {
             if (!GameController.isPaused) FlapMonkey();
             flapped = true;
         }
 
-		if (level < voiceSensitivity && flapped) flapped = false;
+		if (level < SettingsController.voiceSensitivity && flapped) flapped = false;
 	}
 
     void FlapMonkeyWithTouch()
@@ -155,12 +155,12 @@ public class Monkey : MonoBehaviour {
     private void LoadInputMode()
     {
         int inputModeInt = PlayerPrefs.GetInt("inputMode", 0);
-        if (inputModeInt == 0) inputMode = false;
-        else if (inputModeInt == 1) inputMode = true;
+        if (inputModeInt == 0) SettingsController.inputMode = false;
+        else if (inputModeInt == 1) SettingsController.inputMode = true;
     }
 
     private void LoadVoiceSensitivity()
     {
-        voiceSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.71f);
+        SettingsController.voiceSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.71f);
     }
 }

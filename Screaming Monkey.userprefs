@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{64CB8D5D-47A3-6878-BC9E-6694C611064C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Monkey.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Monkey.cs" Line="20" Column="8" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="31" Column="39" />
+      <File FileName="Assets/Scripts/SettingsController.cs" Line="12" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Screaming_220Monkey PreferredExecutionTarget="Unity.Editor" />
+  <MultiItemStartupConfigurations />
+</Properties>

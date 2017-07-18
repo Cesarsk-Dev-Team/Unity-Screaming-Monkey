@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour {
     private Animator animSoundToggle;
     private bool adEnabled = true;
     private bool adShown = false;
-    private bool inputMode = false;
 
     private const int AD_CHANCE = 15;
 
@@ -51,9 +50,9 @@ public class GameController : MonoBehaviour {
     private void LoadPrefs()
     {
         int inputModeInt = PlayerPrefs.GetInt("inputMode", 0);
-        if (inputModeInt == 0) inputMode = false;
-        else if (inputModeInt == 1) inputMode = true;
-        if (!inputMode) tutorialText.GetComponent<TextMesh>().text = "Scream to Jump";
+        if (inputModeInt == 0) SettingsController.inputMode = false;
+        else if (inputModeInt == 1) SettingsController.inputMode = true;
+        if (!SettingsController.inputMode) tutorialText.GetComponent<TextMesh>().text = "Scream to Jump";
         else tutorialText.GetComponent<TextMesh>().text = "Tap to Jump";
     }
 

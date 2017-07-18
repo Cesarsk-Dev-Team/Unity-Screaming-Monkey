@@ -119,7 +119,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.1
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -139,7 +139,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.cesarsk.screamingmonkey
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
@@ -213,7 +213,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/lucac/Google Drive/Lavoro/Cesarsk Dev Team/keystores/Unity/unity.keystore
+  AndroidKeystoreName: /Users/cesarsk/Google Drive/Lavoro/Cesarsk Dev Team/keystores
+    (1)/Unity/unity.keystore
   AndroidKeyaliasName: unity dev key
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
